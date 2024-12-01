@@ -1,5 +1,4 @@
 section .data
-msg db "sdot (x86-64) = %f", 13, 10, 0
 vectorA dq 0.0
 vectorB dq 0.0
 sdot dq 0.0
@@ -10,14 +9,13 @@ bits 64
 default rel
 
 global asm_sdot
-extern printf
 
 asm_sdot:
     ; n is in rcx
     ; vectorA is in rdx
     ; add rdx, 8 to access next elements
     ; vectorB is in r8
-    ; if we're adding sdot, it will be in r9
+    ; sdot is in r9
     movsd xmm4, [zero]
 
 L1:
@@ -35,7 +33,6 @@ L1:
 
 FINIS:
     movsd [sdot], xmm4
-
-    vmovsd xmm0, [sdot]
+    movsd [r9], xmm4
     xor rax, rax
     ret

@@ -10,7 +10,7 @@ void c_sdot(int n, double* vectorA, double* vectorB, double* sdot) {
 		*sdot += vectorA[i] * vectorB[i];
 	}
 }
-extern double asm_sdot(int n, double* vectorA, double* vectorB);
+extern double asm_sdot(int n, double* vectorA, double* vectorB, double* sdot);
 
 int main() {
 	int n = 1 << 20;
@@ -44,10 +44,11 @@ int main() {
 	// ASM
 	start = clock();
 
-	result_asm = asm_sdot(n, vectorA, vectorB);
+	asm_sdot(n, vectorA, vectorB, &sdot);
 
 	end = clock();
 	elapsedTime = (double)(end - start) / CLOCKS_PER_SEC;
+	result_asm = sdot;
 	printf("sdot (ASM) = %f\n", result_asm);
 	printf("Elapsed time (ASM) = %f seconds\n", elapsedTime);
 
