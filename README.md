@@ -33,4 +33,16 @@ Generally, the x86-64 assembly kernel is more efficient compared to its C counte
 
 ## Program Screenshots
 
-Attached below are screenshots of the program given the different input sizes.
+Attached below are screenshots of the program given the different input sizes. Each screenshot already contains the <ins>**sdot values and execution times in both C and x86-64**</ins>. *"Correctness check passed."* is outputted for all screenshots as all C and x86-64 outputs are pairwisely equal to one another.
+
+**2<sup>20</sup>**
+
+![2^20](https://github.com/pannkakkes/LBYARCHMP/blob/master/PHOTO1.png)
+
+**2<sup>24</sup>**
+
+![2^24](https://github.com/pannkakkes/LBYARCHMP/blob/master/PHOTO2.png)
+
+**2<sup>28</sup>**
+
+![2^28](https://github.com/pannkakkes/LBYARCHMP/blob/master/PHOTO3.png)
