@@ -2,7 +2,7 @@ section .data
 vectorA dq 0.0
 vectorB dq 0.0
 sdot dq 0.0
-zero db 0.0
+zero dq 0.0
 
 section .text
 bits 64
