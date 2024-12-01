@@ -9,7 +9,7 @@ void c_sdot(int n, double* vectorA, double* vectorB, double* sdot) {
 		*sdot += vectorA[i] * vectorB[i];
 	}
 }
-extern void asm_sdot(int n, double* vectorA, double* vectorB, double* sdot);
+extern void asm_sdot(int n, double* vectorA, double* vectorB);
 
 int main() {
 	int n = 4;
@@ -23,7 +23,7 @@ int main() {
 	printf("sdot (C) = %f\n", sdot);
 	result_c = sdot;
 
-	asm_sdot(n, vectorA, vectorB, &sdot);
+	asm_sdot(n, &vectorA, &vectorB);
 	printf("sdot (x86-64) = %f\n", sdot);
 	result_asm = sdot;
 
