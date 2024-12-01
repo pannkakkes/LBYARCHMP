@@ -19,6 +19,10 @@ int main() {
 	double result_c;
 	double result_asm;
 
+	// initalize vector
+	// n = 2^20
+	// make a for loop and increment
+
 	c_sdot(n, vectorA, vectorB, &sdot);
 	printf("sdot (C) = %f\n", sdot);
 	result_c = sdot;
