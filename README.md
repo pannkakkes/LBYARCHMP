@@ -47,7 +47,7 @@ Meanwhile, below are the average execution times of the <ins>x86-64 assembly ker
 
 <ins>**2<sup>28</sup>**</ins> = 0.5725s
 
-# Analysis of Kernel Performances
+## Analysis of Kernel Performances
 
 Generally, the x86-64 assembly kernel is more efficient compared to its C counterpart for multiple reasons. For instance, assembly eliminates the compiler overhead that C may have. SIMD instructions and registers are also very efficient in performing numeric computations particular to floating-point data, as was used in this project. Additionally and importantly, assembly allows direct access to registers, and registers are the fastest type of memory. Memory is also more precisely controlled in assembly.
 
@@ -67,4 +67,4 @@ Attached below are screenshots of the program given the different input sizes. E
 
 ![2^28](https://github.com/pannkakkes/LBYARCHMP/blob/master/PHOTO3.png)
 
-# Demo Video
+## Demo Video
