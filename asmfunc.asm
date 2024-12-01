@@ -8,7 +8,7 @@ default rel
 global asmhello
 extern printf
 
-asmhello:
+asm_sdot:
 	sub rsp, 8*5
 	lea rcx, [msg]
 	call printf
