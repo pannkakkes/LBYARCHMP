@@ -1,5 +1,5 @@
 section .data
-msg db "vectorA = %f", 13, 10, 0
+msg db "sdot (x86-64) = %f", 13, 10, 0
 vectorA dq 0.0
 vectorB dq 0.0
 sdot dq 0.0
@@ -17,6 +17,7 @@ asm_sdot:
     ; vectorA is in rdx
     ; add rdx, 8 to access next elements
     ; vectorB is in r8
+    ; if we're adding sdot, it will be in r9
     movsd xmm4, [zero]
 
 L1:
@@ -35,11 +36,13 @@ L1:
 FINIS:
     movsd [sdot], xmm4
 
+    ; remove this part
     sub rsp, 8*7
         lea rcx, [msg]
         mov rdx, [sdot]
         call printf
     add rsp, 8*7
 
+    vmovsd xmm0, [sdot]
     xor rax, rax
     ret
