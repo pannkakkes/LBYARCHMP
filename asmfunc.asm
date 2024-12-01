@@ -2,6 +2,8 @@ section .data
 msg db "vectorA = %f", 13, 10, 0
 vectorA dq 0.0
 vectorB dq 0.0
+sdot dq 0.0
+zero db 0.0
 
 section .text
 bits 64
@@ -15,14 +17,27 @@ asm_sdot:
     ; vectorA is in rdx
     ; add rdx, 8 to access next elements
     ; vectorB is in r8
+    movsd xmm4, [zero]
+
+L1:
     movsd xmm1, [rdx]
-    movsd [vectorA], xmm1
     movsd xmm2, [r8]
-    movsd [vectorB], xmm2
+
+    vmulsd xmm3, xmm1, xmm2
+    addsd xmm4, xmm3
+
+    add rdx, 8
+    add r8, 8
+
+    dec rcx
+    jnz L1
+
+FINIS:
+    movsd [sdot], xmm4
 
     sub rsp, 8*7
         lea rcx, [msg]
-        mov rdx, [vectorA]
+        mov rdx, [sdot]
         call printf
     add rsp, 8*7
 
