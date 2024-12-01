@@ -28,10 +28,10 @@ int main() {
 	result_asm = sdot;
 
 	if (result_c == result_asm) {
-		printf("Correctness Check Passed.\n");
+		printf("Correctness check passed.\n");
 	}
 	else {
-		printf("Correctness Check Failed.\n");
+		printf("Correctness check failed.\n");
 	}
 
 	return 0;
