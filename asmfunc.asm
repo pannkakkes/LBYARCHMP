@@ -36,13 +36,6 @@ L1:
 FINIS:
     movsd [sdot], xmm4
 
-    ; remove this part
-    sub rsp, 8*7
-        lea rcx, [msg]
-        mov rdx, [sdot]
-        call printf
-    add rsp, 8*7
-
     vmovsd xmm0, [sdot]
     xor rax, rax
     ret
