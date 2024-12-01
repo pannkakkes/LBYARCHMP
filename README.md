@@ -11,9 +11,9 @@
 
 <ins>**Output:**</ins> Store the result in memory location sdot.  Display the result for all versions of the kernel.
 
-## Comparative Execution Time
+## Execution Times (Debug Mode)
 
-The average execution time of the <ins>C kernel</ins> given the following input sizes are as follows:
+In **debug** mode, the average execution time of the <ins>C kernel</ins> given the following input sizes are as follows:
 
 <ins>**2<sup>20</sup>**</ins> = 0.00405s
 
@@ -28,6 +28,26 @@ Meanwhile, below are the average execution times of the <ins>x86-64 assembly ker
 <ins>**2<sup>24</sup>**</ins> = 0.028s
 
 <ins>**2<sup>28</sup>**</ins> = 0.5725s
+
+## Execution Times (Release Mode)
+
+In **release** mode, the average execution time of the <ins>C kernel</ins> given the following input sizes are as follows:
+
+<ins>**2<sup>20</sup>**</ins> = 0.00405s
+
+<ins>**2<sup>24</sup>**</ins> = 0.0499s
+
+<ins>**2<sup>28</sup>**</ins> = 1.19175s
+
+Meanwhile, below are the average execution times of the <ins>x86-64 assembly kernel</ins>:
+
+<ins>**2<sup>20</sup>**</ins> = 0.00215s
+
+<ins>**2<sup>24</sup>**</ins> = 0.028s
+
+<ins>**2<sup>28</sup>**</ins> = 0.5725s
+
+# Analysis of Kernel Performances
 
 Generally, the x86-64 assembly kernel is more efficient compared to its C counterpart for multiple reasons. For instance, assembly eliminates the compiler overhead that C may have. SIMD instructions and registers are also very efficient in performing numeric computations particular to floating-point data, as was used in this project. Additionally and importantly, assembly allows direct access to registers, and registers are the fastest type of memory. Memory is also more precisely controlled in assembly.
 
